@@ -1,32 +1,43 @@
 <template>
   <nav id="header">
-    <a href="#">Home</a>
-    <a href="#">Contact</a>
+    <router-link :to="{ name: 'Home' }">HOME</router-link>
+    <router-link :to="{ name: 'Contact' }">CONTACT</router-link>
   </nav>
-  <section>
-    <Home />
-  </section>
+  <router-view></router-view>
 </template>
 
 <script>
-import Home from "./components/Home.vue";
-import Products from "./components/Products.vue";
+import Home from "../src/views/Home.vue";
 
 export default {
   name: "App",
   components: {
     Home,
-    Products,
+  },
+  data() {
+    return {};
   },
 };
 </script>
 
 <style>
-#header {
-  background-color: black;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap");
+
+body {
+  font-family: Nunito;
+  margin: 0;
 }
 
-a {
+#header {
+  margin: 0 auto;
+  height: 70px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header a {
   font-size: 20px;
   margin: 5px;
   text-decoration: none;
